@@ -60,6 +60,22 @@ Je trouve que l'environnement de travail que l'on va installer est sublimé par 
 
 Si vous ne l'aimez pas, il vous faudra supprimer toutes les lignes de commande qui y font référence... ce qui serait dommage quand même ! Donnez-lui une chance, vous verrez c'est bien. :)
 
+# GTK
+
+C'est le thème Dracula pour le bureau.
+
+```bash
+cd ~/Downloads
+curl https://github.com/dracula/gtk/archive/master.zip
+curl https://github.com/dracula/gtk/files/5214870/Dracula.zip
+mkdir ~/.themes
+unzip master.zip -d ~/.themes/dracula
+mkdir ~/.icons
+unzip Dracula.zip -d ~/.icons/dracula
+```
+
+Allez ensuite dans Menu Principal > Gestionnaire de paramètres > Apparence, et choisissez "dracula" dans Style, et "Papirus-Dark" dans Icones.
+
 # Terminal
 
 Beaucoup de geeks vous diraient, avec raison, qu'il faut un bon terminal pour pouvoir administrer Linux correctement, et vous proposeraient des terminaux modernes de type Alacritty, Kitty, Terminator, etc. Alors certes ils sont très bien, mais ils sont également complexes à paramétrer et ne me sont pas spécifiquement utiles - je trouve que le terminal Xfce4 est largement suffisant pour mes usages.
@@ -71,11 +87,11 @@ git clone https://github.com/dracula/xfce4-terminal.git
 cp xfce4-terminal/Dracula.theme ~/.local/share/xfce4/terminal/colorschemes
 ```
 
-Relancez le terminal puis allez dans Préférences > Apparence > Couleurs et choisissez Dracula.
+Relancez le terminal puis allez dans son menu Préférences > Apparence > Couleurs et choisissez Dracula.
 
 ## Zsh
 
-Dans ce terminal en revanche, on ne pas utiliser Bash au quotidien, mais Zsh. On va le gérer avec l'utilitaire "Oh my Zsh" :
+Dans ce terminal on ne pas utiliser Bash au quotidien, mais Zsh. On va le gérer avec l'utilitaire "Oh my Zsh" :
 
 ```bash
 sudo apt install zsh
@@ -139,6 +155,8 @@ cd powerlevel10k
 cp ./files/.zshrc ~/.zshrc
 cp ./files/.p10k.zsh ~/.p10k.zsh
 ```
+
+*Lors de mes tests il est arrivé que la config tmux enlève la config zsh ou inversement. Dans ce cas il suffit de refaire la manip une fois.*
 
 # Rofi
 
@@ -213,11 +231,9 @@ Faites-vous des réglages comme vous les aimez dans le fichier conf, perso je ch
 
 > Astuce : si vous êtes perdus dans les layers bash/zsh/tmux, faites `exit` autant de fois que nécéssaire pour remonter les niveaux, de l'actuel jusqu'à la fermeture du terminal.
 
-## tmux how-to
-
 # vim
 
-Si comme moi vous utilisez Vim, je vous conseille quelques réglages et plugins pour vous faciliter son usage sur le Pi.
+Si comme moi vous utilisez Vim tout le temps ou presque, je vous conseille quelques réglages et plugins pour vous faciliter son usage sur le Pi.
 
 Installez d'abord vim si necessaire, puis le gestionnaire de plugins.
 
