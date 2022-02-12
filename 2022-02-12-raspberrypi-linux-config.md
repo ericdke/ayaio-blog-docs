@@ -1,6 +1,6 @@
-Peut-on remplacer son Mac par un Raspberry Pi au quotidien ? Oui ! Enfin, presque.
+Peut-on remplacer son Mac par un Raspberry Pi au quotidien ? Oui ! Enfin, non. Bon, ça dépend...
 
-Ca ne marchera pas pour le développement iOS pour des raisons évidentes, mais pour tout le reste, ça le fait carrément bien... avec pas mal d'huile de coude.
+Ca ne marchera pas pour le développement iOS pour des raisons évidentes, mais pour tout le reste, ça le fait carrément bien, à condition de ne pas avoir peur de mettre les mains dans le cambouis.
 
 Je raconte comment j'ai installé puis configuré, aux petits oignons, une station Raspberry Pi 400 ou Pi 4 avec Raspberry OS.
 
@@ -8,23 +8,23 @@ Je raconte comment j'ai installé puis configuré, aux petits oignons, une stati
 
 # Installer la distribution
 
-Il faut installer Raspberry Pi OS sur une carte dédiée. Je conseille 16Go minimum. 32 seront confortables, et 64 est idéal si vous comptez manipuler des gros fichiers. L'essentiel est que la carte soit rapide, classe 10 et bon fabriquant sont indispensables.
+Il faut installer Raspberry Pi OS sur une carte dédiée. Je conseille 16Go minimum. 32 seront confortables, et 64 est idéal si vous comptez manipuler des gros fichiers, mais le plus important est que la carte soit rapide, classe 10 et bon fabriquant sont indispensables.
 
-Le plus simple est d'utiliser l'app Raspberry Imager. 
+Le plus simple pour l'install est d'utiliser l'app [Raspberry Imager](https://www.raspberrypi.com/software/), disponible sur toutes les plateformes. 
 
-Dans l'app, sélectionnez la version de votre choix (32 ou 64 bits) mais surtout faites bien attention à choisir Raspberry OS (et non pas Ubuntu par exemple, qui est complètement buggée pour Pi).
+Dans l'app, sélectionnez la version de votre choix de Raspberry OS (32 ou 64 bits) mais surtout faites bien attention à choisir **Raspberry OS** et non pas Ubuntu par exemple, qui est complètement buggée pour Pi.
 
 La version 64 bits est 20% plus rapide, mais occupe deux fois plus de place et mange plus de RAM. Perso j'ai pris la version 32 bits, largement assez véloce sur le Pi 400 de toute façon.
 
 Une fois l'image copiée sur la carte vous pouvez l'insérer dans le Pi puis démarrer. 
 
-Ensuite suivez les instructions pour la configuration de base - WIFI, timezone, langage, username, password, etc.
+Ensuite suivez les instructions pour la configuration de base - WIFI, timezone, langage, username, password, etc, tut est simple et visuel.
 
-Arrive un moment où le bureau sera chargé. C'est le gestionnaire LXDE avec le bureau PIXEL spécialement conçu pour les Pi. Sympa, mais très limité. Nous allons le remplacer par Xfce 4, tout aussi léger mais bien plus moderne est arrangeant, surtout avec 4 Go de RAM.
+Arrive un moment où le bureau sera chargé. C'est le gestionnaire LXDE avec le bureau PIXEL spécialement conçu pour les Pi. Sympa, mais très limité. Nous allons le remplacer par Xfce 4, tout aussi léger mais bien plus configurable et arrangeant, surtout avec 4 Go de RAM.
 
 # Installation Xfce
 
-Pour un Pi, c'est l'environnement de bureau idéal. Bien sûr vous pourriez installer un KDE ultramoderne, ça passe avec 8 Go de RAM, mais je trouve que ça fait un peu contresens sur un Pi. On pourrait aussi de l'autre côté choisir un environnement minimaliste, ce qui est parfaitement valable - mais aujourd'hui nous allons suivre la voie du milieu.
+Pour un Pi, c'est l'environnement de bureau idéal. Bien sûr vous pourriez installer un KDE Plasma ultramoderne, ça passe avec 8 Go de RAM, mais je trouve que ça fait un peu contresens sur un Pi. On pourrait aussi de l'autre côté choisir un environnement minimaliste, ce qui est parfaitement valable - mais aujourd'hui nous allons suivre la voie du milieu.
 
 Il y a dans Raspberry OS un petit assistant qui va nous faciliter la tâche.
 
@@ -48,7 +48,7 @@ Dans la liste, sélectionnez "Xfce4" en pressant le numéro correspondant.
 
 Ensuite un reboot et on c'est ok.
 
-Au redémarrage, si Xfce vous propose un "panel" par défaut, dites oui, même si on va l'enlever plus tard.
+Au redémarrage, si Xfce vous propose un "panel" par défaut, dites oui pour faciliter la config, même si personnellement je l'ai enlevé tout de suite après. Je garde le panel du haut, qui fait "power bar", mais j'enlève le panel du bas qui fait "Dock".
 
 # Dracula
 
@@ -60,9 +60,11 @@ Je trouve que l'environnement de travail que l'on va installer est sublimé par 
 
 Si vous ne l'aimez pas, il vous faudra supprimer toutes les lignes de commande qui y font référence... ce qui serait dommage quand même ! Donnez-lui une chance, vous verrez c'est bien. :)
 
-# GTK
+Sinon dans le même genre il y a aussi [catppuccin](https://github.com/catppuccin/catppuccin) qui est très apprécié.
 
-C'est le thème Dracula pour le bureau.
+# Thème
+
+On commence par installer le thème Dracula pour le bureau.
 
 ```bash
 cd ~/Downloads
@@ -75,6 +77,18 @@ unzip Dracula.zip -d ~/.icons/dracula
 ```
 
 Allez ensuite dans Menu Principal > Gestionnaire de paramètres > Apparence, et choisissez "dracula" dans Style, et "Papirus-Dark" dans Icones.
+
+# Fenêtres
+
+C'est la grande mode des "tiling window managers" dans le monde Linux, et c'est vrai que c'est très attirant de pouvoir organiser ses fenêtres de manière géométrique sans qu'elles ne se marchent jamais dessus. Mais l'installation et la configuration de ces WM (type Xmonad) est incroyablement complexe, et je laisse ça pour un prochain dossier.
+
+A la place, ici, nous allons tout simplement créér un jeu de raccourcis clavier pour le gestionnaire de fenêtres, qui va nous permettre de caler les fenêtres sans avoir besoin de WM étranger.
+
+Allez dans Menu Principal > Gestionnaire de fenêtres > Clavier, puis assignez des combinaisons de touches pour les actions "Agencer la fenêtre en mosaïque ...". Par exemple je reprends les codes de Vim pour me souvenir facilement donc j'ai mis Maj+Ctrl+J pour demi écran en haut, Maj+Ctrl+K pour demi écran en bas, Maj+Ctrl+H pour demi écran à gauche, et Maj+Ctrl+L pour demi écran à droite.
+
+Si comme mi vous enlevez les menus des fenêtres ainsi que leurs bordures (en tout cas pour le terminal Xfce), le tout en association avec Tmux, vous vous retrouverez avec un bureau super clean et bien calé, sans avoir besoin de rien ajouter.
+
+Profitez-en pour regarder les autres actions proposées, il y a plein de réglages sympa à faire dans ces préférences.
 
 # Terminal
 
@@ -89,7 +103,7 @@ cp xfce4-terminal/Dracula.theme ~/.local/share/xfce4/terminal/colorschemes
 
 Relancez le terminal puis allez dans son menu Préférences > Apparence > Couleurs et choisissez Dracula.
 
-## Zsh
+# Zsh
 
 Dans ce terminal on ne pas utiliser Bash au quotidien, mais Zsh. On va le gérer avec l'utilitaire "Oh my Zsh" :
 
@@ -103,7 +117,7 @@ source ~/.zshrc
 
 Ces commandes vont installer Zsh puis Oh My Zsh. Suivez ensuite le tuto proposé par OMZ pour faire vos réglages de base.
 
-## PowerLevel10k
+# PowerLevel10k
 
 Ensuite on ajoute PowerLevel10k qui permet de confectionner une superbe ligne de commande. Il faut d'abord [télécharger les fonts Meslo](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) qui sont idéales pour ça. 
 
@@ -307,34 +321,6 @@ vnoremap Y "+y
 nnoremap yY ^"+y$
 ```
 
-# Chromium et Firefox
-
-Normalement Chromium est déjà installé, et c'est franchement le navigateur qui a le meilleur compromis modernité/fiabilité/légèreté/vitesse sur le Pi. Mais je vous conseille également d'installer Firefox, même s'il est bien plus lourd en RAM et CPU, car il est aussi très joli, proposse un meilleur rendu des pages, et offres plus de features comme la synchro des bookmarks par exemple.
-
-```bash
-sudo apt install firefox-esm
-```
-
-# FileZilla
-
-Un peu antique, mais il propose toutes les fonctionnalités que l'on attend de lui.
-
-```bash
-sudo apt install filezilla
-```
-
-# VSCode
-
-Malheureusement Sublime Text n'est pas disponible sur le Pi en 32 bits (et n'est pas mature sous 64 bits de toute façon), et je vous déconseille l'utilsation d'IDE lourds tel que Eclipse sur le Pi. Il nous reste une excellente option avec VSCode qui tourne très bien même avec 4 Go de RAM.
-
-```bash
-sudo apt install code
-git clone https://github.com/dracula/visual-studio-code.git ~/.vscode/extensions/theme-dracula
-cd ~/.vscode/extensions/theme-dracula
-npm install
-npm run build
-```
-
 # SSH
 
 Il est indispensable de pouvoir se connecter au terminal du Pi à partir d'une autre machine, il nous faut donc ouvrir le serveur ssh.
@@ -400,5 +386,43 @@ sudo mount -a
 ```
 
 Cette manipulation vous permettra d'accéder au partage en lecture/écriture avec vos droits d'utilisateur sans avoir à passer par root.
+
+# Chromium et Firefox
+
+Normalement Chromium est déjà installé, et c'est franchement le navigateur qui a le meilleur compromis modernité/fiabilité/légèreté/vitesse sur le Pi. Mais je vous conseille également d'installer Firefox, même s'il est bien plus lourd en RAM et CPU, car il est aussi très joli, proposse un meilleur rendu des pages, et offres plus de features comme la synchro des bookmarks par exemple.
+
+```bash
+sudo apt install firefox-esm
+```
+
+# FileZilla
+
+Un peu antique, mais il propose toutes les fonctionnalités que l'on attend de lui.
+
+```bash
+sudo apt install filezilla
+```
+
+# VSCode
+
+Malheureusement Sublime Text n'est pas disponible sur le Pi en 32 bits (et n'est pas mature sous 64 bits de toute façon), et je vous déconseille l'utilsation d'IDE lourds tel que Eclipse sur le Pi. Il nous reste une excellente option avec VSCode qui tourne très bien même avec 4 Go de RAM.
+
+```bash
+sudo apt install code
+git clone https://github.com/dracula/visual-studio-code.git ~/.vscode/extensions/theme-dracula
+cd ~/.vscode/extensions/theme-dracula
+npm install
+npm run build
+```
+
+# bpytop
+
+Le meilleur remplacement de luxe pour top, avec en prime le thème Dracula intégré !
+
+```bash
+sudo apt install bpytop
+```
+
+Une fois bpytop lancé, et passé le choc devant la geekerie de la chose, faites `M` pour ouvrir son menu, puis flèches droite/gauche pour naviguer dans les thèmes. Dracula et Nord sont ceux qui s'accordent le mieu avec notre bureau.
 
 
