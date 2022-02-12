@@ -50,9 +50,28 @@ Ensuite un reboot et on c'est ok.
 
 Au redémarrage, si Xfce vous propose un "panel" par défaut, dites oui, même si on va l'enlever plus tard.
 
+# Dracula
+
+[Dracula](https://draculatheme.com/) est un thème - palette de couleurs, décoration de fenêtres, etc - qui a la particularité d'être disponible pour plus de 200 applications, ce qui permet d'obtenir un résultat homogène. Vous pouvez appliquer Dracula non seulement au bureau, fenêtres, icônes, menus, mais aussi à tout le système et à toutes les apps : terminal, navigateur, traitement de texte, etc.
+
+Tout ce que l'on installe dans ce tuto est thémé avec Dracula, y compris Vim et Zsh !
+
+Je trouve que l'environnement de travail que l'on va installer est sublimé par ce thème, qui unifie parfaitement bien tous les éléments de l'interface graphique.
+
+Si vous ne l'aimez pas, il vous faudra supprimer toutes les lignes de commande qui y font référence... ce qui serait dommage quand même ! Donnez-lui une chance, vous verrez c'est bien. :)
+
 # Terminal
 
 Beaucoup de geeks vous diraient, avec raison, qu'il faut un bon terminal pour pouvoir administrer Linux correctement, et vous proposeraient des terminaux modernes de type Alacritty, Kitty, Terminator, etc. Alors certes ils sont très bien, mais ils sont également complexes à paramétrer et ne me sont pas spécifiquement utiles - je trouve que le terminal Xfce4 est largement suffisant pour mes usages.
+
+Pour installer Dracula dans le terminal Xfce :
+
+```bash
+git clone https://github.com/dracula/xfce4-terminal.git
+cp xfce4-terminal/Dracula.theme ~/.local/share/xfce4/terminal/colorschemes
+```
+
+Relancez le terminal puis allez dans Préférences > Apparence > Couleurs et choisissez Dracula.
 
 ## Zsh
 
@@ -61,6 +80,9 @@ Dans ce terminal en revanche, on ne pas utiliser Bash au quotidien, mais Zsh. On
 ```bash
 sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/dracula/zsh.git
+cp zsh/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
+source ~/.zshrc
 ```
 
 Ces commandes vont installer Zsh puis Oh My Zsh. Suivez ensuite le tuto proposé par OMZ pour faire vos réglages de base.
@@ -109,6 +131,15 @@ p10k configure
 
 Toujours dans Xfce Terminal, dans Préférences, sélectionnez la police que vous venez d'installer.
 
+Et pour finnir :
+
+```bash
+git clone https://github.com/dracula/powerlevel10k.git
+cd powerlevel10k
+cp ./files/.zshrc ~/.zshrc
+cp ./files/.p10k.zsh ~/.p10k.zsh
+```
+
 # Rofi
 
 C'est un lanceur modal qui permet, comme dans macOS, de faire apparaitre une fenetre flottante avec un champ de texte pour trouver rapidement une application à lancer ou un fichier à ouvrir, d'un simple rraccourci clavier tel que Meta-Espace.
@@ -117,6 +148,8 @@ C'est un lanceur modal qui permet, comme dans macOS, de faire apparaitre une fen
 sudo apt install rofi
 mkdir -p ~/.config/rofi
 rofi -dump-config > ~/.config/rofi/config.rasi
+git clone https://github.com/dracula/rofi
+cp rofi/theme/config1.rasi ~/.config/rofi/config.rasi
 ```
 
 Allez dans le menu principal du bureau, ouvrez Paramètres > Clavier > Raccourcis d'applications, et ajoutez un raccourci de votre choix (Alt+Espace pour faire comme dans macOS) contenant cette ligne :
@@ -124,8 +157,6 @@ Allez dans le menu principal du bureau, ouvrez Paramètres > Clavier > Raccourci
 ```bash
 rofi -modi "run,drun,window" -show run
 ```
-
-## rofi how-to
 
 # Ruby
 
@@ -170,7 +201,7 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 run -b '~/.tmux/plugins/tpm/tpm'
 ```
 
-Finalement, activez le tout. Lancez tmux, puis sourcez, puis faites prefix+I pour installer les plugins listés.
+Finalement, activez le tout. Lancez tmux, puis sourcez, puis faites prefix+I pour installer les plugins listés :
 
 ```bash
 tmux
@@ -229,19 +260,36 @@ Plug 'honza/vim-snippets'
 call plug#end()
 ```
 
-Ensuite lancez vim puis tapez `:PlugInstall` pour commencer l'installation des plugins listés dans le fichier de conf.
+Ensuite relancez vim, puis tapez `:PlugInstall` pour commencer l'installation des plugins listés dans le fichier de conf.
 
 ```bash
 vim
 <:PlugInstall>
 ```
 
-## Polyglot
-
 ## NerdTree
+
+En mode NORMAL, tapez `:NERDTree` + Enter pour faire apparaître le navigateur de fichiers intégré à Vim.
 
 ## SnipMate
 
+En mode NORMAL, faites `:SnipMateOpenSnippetFiles` + Enter, cela va ouvrir la liste des fichiers de snippets disponibles. Sélectionnez-en un et observez la syntaxe pour vous en inspirer, c'est facile.
+
+A l'usage, il suffit de se mettre en mode INSERT, de taper le mot-clé déclencheur puis de taper la raccourci décencheur, par défaut TAB.
+
+## Yank to clipboard
+
+Dans Vim le copier-coller avec la commande `yank` se fait avec les registres de Vim, c'est-à-dire que les tampons mémoire sont internes à Vim, le système ne les voit pas quand on copie en mode VISUAL avec `y`.
+
+Ma solution est de map `Y` sur une commande qui partage le registre copié dans le clipboard du système. Faites `y` pour copier dans Vim ou `Y` pour copier dans le clipboard.
+
+Ajoutez ça dans `~/.vimrc` :
+
+```text
+nnoremap Y "+y
+vnoremap Y "+y
+nnoremap yY ^"+y$
+```
 
 # Chromium et Firefox
 
@@ -265,6 +313,10 @@ Malheureusement Sublime Text n'est pas disponible sur le Pi en 32 bits (et n'est
 
 ```bash
 sudo apt install code
+git clone https://github.com/dracula/visual-studio-code.git ~/.vscode/extensions/theme-dracula
+cd ~/.vscode/extensions/theme-dracula
+npm install
+npm run build
 ```
 
 # SSH
@@ -291,7 +343,7 @@ Tout simplement.
 
 # Accéder à un share
 
-Si vous avez une machine qui partage des fichiers sur votre réseau, il est très facile d'y accéder avec un gestionnaire de fichiers visuel tel que Thunar, déjà installé par défaut.
+Si vous avez une machine qui partage des fichiers sur votre réseau, il est très facile d'y accéder à partir du Pi avec un gestionnaire de fichiers visuel tel que Thunar, déjà installé par défaut.
 
 Ceci dit, si la machine qui partage les fichiers est un Mac, il faut commencer par aller, sur ce Mac, dans Préférences > Partage > Options, activer Partager via SMB, et ne pas oublier de cocher la case en face de votre user name.
 
