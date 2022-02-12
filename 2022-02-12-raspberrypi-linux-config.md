@@ -315,6 +315,8 @@ vim
 
 En mode NORMAL, tapez `:NERDTree` + Enter pour faire apparaître le navigateur de fichiers intégré à Vim.
 
+![NERDTree](images/pi400-nerdtree.png)
+
 ## SnipMate
 
 En mode NORMAL, faites `:SnipMateOpenSnippetFiles` + Enter, cela va ouvrir la liste des fichiers de snippets disponibles. Sélectionnez-en un et observez la syntaxe pour vous en inspirer, c'est facile.
@@ -417,6 +419,8 @@ Un peu antique, mais il propose toutes les fonctionnalités que l'on attend de l
 sudo apt install filezilla
 ```
 
+![filezilla](images/pi400-filezilla.png)
+
 # VSCode
 
 Malheureusement Sublime Text n'est pas disponible sur le Pi en 32 bits (et n'est pas mature sous 64 bits de toute façon), et je vous déconseille l'utilsation d'IDE lourds tel que Eclipse sur le Pi. Il nous reste une excellente option avec VSCode qui tourne très bien même avec 4 Go de RAM.
@@ -439,7 +443,7 @@ sudo apt install bpytop
 
 Une fois bpytop lancé, et passé le choc devant la geekerie de la chose, faites `M` pour ouvrir son menu, puis flèches droite/gauche pour naviguer dans les thèmes. Dracula et Nord sont ceux qui s'accordent le mieu avec notre bureau.
 
-![bpytop](images/crunchingpngs.png)
+![bpytop](images/pi400-crunchingpngs.png)
 
 # dotfiles
 
