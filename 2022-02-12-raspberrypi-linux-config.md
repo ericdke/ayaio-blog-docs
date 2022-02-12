@@ -1,10 +1,10 @@
-<!-- pi400-pixandneofetch.png  -->
+![intro](https://aya.io/blog/images/pi400-pixandneofetch.png)
 
 Peut-on remplacer son Mac par un Raspberry Pi au quotidien ? Oui ! Enfin, non. Bon, ça dépend...
 
-Ca ne marchera pas pour le développement iOS pour des raisons évidentes, mais pour tout le reste, ça le fait carrément bien, à condition de ne pas avoir peur de mettre les mains dans le cambouis.
+Ca ne marchera pas pour le développement iOS pour des raisons évidentes, mais pour tout le reste, ça le fait carrément bien, à condition de ne pas avoir peur de mettre les mains dans le cambouis pour tout préparer comme il faut.
 
-Je raconte comment j'ai installé puis configuré, aux petits oignons, une station Raspberry Pi 400 ou Pi 4 avec Raspberry OS.
+Je raconte comment j'ai installé puis configuré, aux petits oignons, une station Raspberry Pi 400 avec Raspberry OS, qui m'apporte une joie considérable.
 
 <!-- more -->
 
@@ -14,9 +14,9 @@ Il faut installer Raspberry Pi OS sur une carte dédiée. Je conseille 16Go mini
 
 Le plus simple pour l'install est d'utiliser l'app [Raspberry Imager](https://www.raspberrypi.com/software/), disponible sur toutes les plateformes. 
 
-![pi imager](images/pi400-piimager.png)
+![pi imager](https://aya.io/blog/images/pi400-piimager.png)
 
-Dans l'app, sélectionnez la version de votre choix de Raspberry OS (32 ou 64 bits) mais surtout faites bien attention à choisir **Raspberry OS** et non pas Ubuntu par exemple, qui est complètement buggée pour Pi.
+Dans l'app, sélectionnez la version de votre choix de Raspberry Pi OS (32 ou 64 bits) mais surtout faites bien attention à choisir **Raspberry Pi OS** et non pas Ubuntu par exemple, qui est complètement buggée pour Pi.
 
 La version 64 bits est 20% plus rapide, mais occupe deux fois plus de place et mange plus de RAM. Perso j'ai pris la version 32 bits, largement assez véloce sur le Pi 400 de toute façon.
 
@@ -26,7 +26,7 @@ Ensuite suivez les instructions pour la configuration de base - WIFI, timezone, 
 
 Arrive un moment où le bureau sera chargé. C'est le gestionnaire LXDE avec le bureau PIXEL spécialement conçu pour les Pi. Sympa, mais très limité. Nous allons le remplacer par Xfce 4, tout aussi léger mais bien plus configurable et arrangeant, surtout avec 4 Go de RAM.
 
-# Installation Xfce
+## Installation Xfce
 
 Pour un Pi, c'est l'environnement de bureau idéal. Bien sûr vous pourriez installer un KDE Plasma ultramoderne, ça passe avec 8 Go de RAM, mais je trouve que ça fait un peu contresens sur un Pi. On pourrait aussi de l'autre côté choisir un environnement minimaliste, ce qui est parfaitement valable - mais aujourd'hui nous allons suivre la voie du milieu.
 
@@ -62,15 +62,15 @@ Tout ce que l'on installe dans ce tuto est thémé avec Dracula, y compris Vim e
 
 Je trouve que l'environnement de travail que l'on va installer est sublimé par ce thème, qui unifie parfaitement bien tous les éléments de l'interface graphique.
 
-![fichiers et chromium](images/pi400-filesandchromium.png)
+![fichiers et chromium](https://aya.io/blog/images/pi400-filesandchromium.png)
 
-![menus](images/pi400-menus.png)
+![menus](https://aya.io/blog/images/pi400-menus.png)
 
 Si vous ne l'aimez pas, il vous faudra supprimer toutes les lignes de commande qui y font référence... ce qui serait dommage quand même ! Donnez-lui une chance, vous verrez c'est bien. :)
 
 Sinon dans le même genre il y a aussi [catppuccin](https://github.com/catppuccin/catppuccin) qui est très apprécié.
 
-# Thème
+## Thème
 
 On commence par installer le thème Dracula pour le bureau.
 
@@ -86,9 +86,9 @@ unzip Dracula.zip -d ~/.icons/dracula
 
 Allez ensuite dans Menu Principal > Gestionnaire de paramètres > Apparence, et choisissez "dracula" dans Style, et "Papirus-Dark" dans Icones.
 
-![dossier images](images/pi400-pictures.png)
+![dossier images](https://aya.io/blog/images/pi400-pictures.png)
 
-# Fenêtres
+## Fenêtres
 
 C'est la grande mode des "tiling window managers" dans le monde Linux, et c'est vrai que c'est très attirant de pouvoir organiser ses fenêtres de manière géométrique sans qu'elles ne se marchent jamais dessus. Mais l'installation et la configuration de ces WM (type Xmonad) est incroyablement complexe, et je laisse ça pour un prochain dossier.
 
@@ -96,13 +96,13 @@ A la place, ici, nous allons tout simplement créér un jeu de raccourcis clavie
 
 Allez dans Menu Principal > Gestionnaire de fenêtres > Clavier, puis assignez des combinaisons de touches pour les actions "Agencer la fenêtre en mosaïque ...". Par exemple je reprends les codes de Vim pour me souvenir facilement donc j'ai mis Maj+Ctrl+J pour demi écran en haut, Maj+Ctrl+K pour demi écran en bas, Maj+Ctrl+H pour demi écran à gauche, et Maj+Ctrl+L pour demi écran à droite.
 
-![windows shortcuts](images/pi400-windowprefs.png)
+![windows shortcuts](https://aya.io/blog/images/pi400-windowprefs.png)
 
 Si comme mi vous enlevez les menus des fenêtres ainsi que leurs bordures (en tout cas pour le terminal Xfce), le tout en association avec Tmux, vous vous retrouverez avec un bureau super clean et bien calé, sans avoir besoin de rien ajouter.
 
 Profitez-en pour regarder les autres actions proposées, il y a plein de réglages sympa à faire dans ces préférences.
 
-# Terminal
+## Terminal
 
 Beaucoup de geeks vous diraient, avec raison, qu'il faut un bon terminal pour pouvoir administrer Linux correctement, et vous proposeraient des terminaux modernes de type Alacritty, Kitty, Terminator, etc. Alors certes ils sont très bien, mais ils sont également complexes à paramétrer et ne me sont pas spécifiquement utiles - je trouve que le terminal Xfce4 est largement suffisant pour mes usages.
 
@@ -115,7 +115,7 @@ cp xfce4-terminal/Dracula.theme ~/.local/share/xfce4/terminal/colorschemes
 
 Relancez le terminal puis allez dans son menu Préférences > Apparence > Couleurs et choisissez Dracula.
 
-# Zsh
+## Zsh
 
 Dans ce terminal on ne pas utiliser Bash au quotidien, mais Zsh. On va le gérer avec l'utilitaire "Oh my Zsh" :
 
@@ -129,7 +129,7 @@ source ~/.zshrc
 
 Ces commandes vont installer Zsh puis Oh My Zsh. Suivez ensuite le tuto proposé par OMZ pour faire vos réglages de base.
 
-# PowerLevel10k
+## PowerLevel10k
 
 Ensuite on ajoute PowerLevel10k qui permet de confectionner une superbe ligne de commande. Il faut d'abord [télécharger les fonts Meslo](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) qui sont idéales pour ça. 
 
@@ -184,9 +184,9 @@ cp ./files/.p10k.zsh ~/.p10k.zsh
 
 *Lors de mes tests il est arrivé que la config tmux enlève la config zsh ou inversement. Dans ce cas il suffit de refaire la manip une fois.*
 
-# Rofi
+## Rofi
 
-![rofi](images/pi400-rofi.png)
+![rofi](https://aya.io/blog/images/pi400-rofi.png)
 
 C'est un lanceur modal qui permet, comme dans macOS, de faire apparaitre une fenetre flottante avec un champ de texte pour trouver rapidement une application à lancer ou un fichier à ouvrir, d'un simple rraccourci clavier tel que Meta-Espace.
 
@@ -204,7 +204,7 @@ Allez dans le menu principal du bureau, ouvrez Paramètres > Clavier > Raccourci
 rofi -modi "run,drun,window" -show run
 ```
 
-# Ruby
+## Ruby
 
 Il est conseillé de ne pas utiliser les versions de Ruby packagées dans le système, comme sur macOS, et d'utiliser un gestionnaire de versions à la place. J'ai l'habitude d'utiser Rbenv.
 
@@ -228,7 +228,7 @@ rbenv install 3.1.0 --verbose
 rbenv global 3.1.0
 ```
 
-# Tmux
+## Tmux
 
 Je me sers principalement de tmux pour diviser le terminal en panneaux, mais c'est également bien pratique pour détacher et attacher des sessions.
 
@@ -259,7 +259,7 @@ Faites-vous des réglages comme vous les aimez dans le fichier conf, perso je ch
 
 > Astuce : si vous êtes perdus dans les layers bash/zsh/tmux, faites `exit` autant de fois que nécéssaire pour remonter les niveaux, de l'actuel jusqu'à la fermeture du terminal.
 
-# vim
+## vim
 
 Si comme moi vous utilisez Vim tout le temps ou presque, je vous conseille quelques réglages et plugins pour vous faciliter son usage sur le Pi.
 
@@ -311,19 +311,19 @@ vim
 <:PlugInstall>
 ```
 
-## NerdTree
+### NerdTree
 
 En mode NORMAL, tapez `:NERDTree` + Enter pour faire apparaître le navigateur de fichiers intégré à Vim.
 
-![NERDTree](images/pi400-nerdtree.png)
+![NERDTree](https://aya.io/blog/images/pi400-nerdtree.png)
 
-## SnipMate
+### SnipMate
 
 En mode NORMAL, faites `:SnipMateOpenSnippetFiles` + Enter, cela va ouvrir la liste des fichiers de snippets disponibles. Sélectionnez-en un et observez la syntaxe pour vous en inspirer, c'est facile.
 
 A l'usage, il suffit de se mettre en mode INSERT, de taper le mot-clé déclencheur puis de taper la raccourci décencheur, par défaut TAB.
 
-## Yank to clipboard
+### Yank to clipboard
 
 Dans Vim le copier-coller avec la commande `yank` se fait avec les registres de Vim, c'est-à-dire que les tampons mémoire sont internes à Vim, le système ne les voit pas quand on copie en mode VISUAL avec `y`.
 
@@ -337,7 +337,7 @@ vnoremap Y "+y
 nnoremap yY ^"+y$
 ```
 
-# SSH
+## SSH
 
 Il est indispensable de pouvoir se connecter au terminal du Pi à partir d'une autre machine, il nous faut donc ouvrir le serveur ssh.
 
@@ -359,7 +359,7 @@ ssh yolo@192.168.1.12
 
 Tout simplement.
 
-# Accéder à un share
+## Accéder à un share
 
 Si vous avez une machine qui partage des fichiers sur votre réseau, il est très facile d'y accéder à partir du Pi avec un gestionnaire de fichiers visuel tel que Thunar, déjà installé par défaut.
 
@@ -403,7 +403,7 @@ sudo mount -a
 
 Cette manipulation vous permettra d'accéder au partage en lecture/écriture avec vos droits d'utilisateur sans avoir à passer par root.
 
-# Chromium et Firefox
+## Chromium et Firefox
 
 Normalement Chromium est déjà installé, et c'est franchement le navigateur qui a le meilleur compromis modernité/fiabilité/légèreté/vitesse sur le Pi. Mais je vous conseille également d'installer Firefox, même s'il est bien plus lourd en RAM et CPU, car il est aussi très joli, proposse un meilleur rendu des pages, et offres plus de features comme la synchro des bookmarks par exemple.
 
@@ -411,7 +411,7 @@ Normalement Chromium est déjà installé, et c'est franchement le navigateur qu
 sudo apt install firefox-esm
 ```
 
-# FileZilla
+## FileZilla
 
 Un peu antique, mais il propose toutes les fonctionnalités que l'on attend de lui.
 
@@ -419,9 +419,9 @@ Un peu antique, mais il propose toutes les fonctionnalités que l'on attend de l
 sudo apt install filezilla
 ```
 
-![filezilla](images/pi400-filezilla.png)
+![filezilla](https://aya.io/blog/images/pi400-filezilla.png)
 
-# VSCode
+## VSCode
 
 Malheureusement Sublime Text n'est pas disponible sur le Pi en 32 bits (et n'est pas mature sous 64 bits de toute façon), et je vous déconseille l'utilsation d'IDE lourds tel que Eclipse sur le Pi. Il nous reste une excellente option avec VSCode qui tourne très bien même avec 4 Go de RAM.
 
@@ -433,7 +433,7 @@ npm install
 npm run build
 ```
 
-# bpytop
+## bpytop
 
 Le meilleur remplacement de luxe pour top, avec en prime le thème Dracula intégré !
 
@@ -443,7 +443,7 @@ sudo apt install bpytop
 
 Une fois bpytop lancé, et passé le choc devant la geekerie de la chose, faites `M` pour ouvrir son menu, puis flèches droite/gauche pour naviguer dans les thèmes. Dracula et Nord sont ceux qui s'accordent le mieu avec notre bureau.
 
-![bpytop](images/pi400-crunchingpngs.png)
+![bpytop](https://aya.io/blog/images/pi400-crunchingpngs.png)
 
 # dotfiles
 
