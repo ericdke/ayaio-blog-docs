@@ -57,6 +57,8 @@ Maintenant, les essentiels.
 
 Beaucoup de geeks vous diraient, avec raison, qu'il faut un bon terminal pour pouvoir administrer Linux correctement, et vous proposeraient des terminaux modernes de type Alacritty, Kitty, Terminator, etc. Alors certes ils sont très bien, mais ils sont également complexes à paramétrer et ne me sont pas spécifiquement utiles - je trouve que le terminal Xfce4 est largement suffisant pour mes usages.
 
+## Zsh
+
 Dans ce terminal en revanche, on ne pas utiliser Bash au quotidien, mais Zsh. On va le gérer avec l'utilitaire "Oh my Zsh" :
 
 ```bash
@@ -65,6 +67,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ```
 
 Ces commandes vont installer Zsh puis Oh My Zsh. Suivez ensuite le tuto proposé par OMZ pour faire vos réglages de base.
+
+## PowerLevel10k
 
 Ensuite on ajoute PowerLevel10k qui permet de confectionner une superbe ligne de commande. Il faut d'abord [télécharger les fonts Meslo](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) qui sont idéales pour ça. Téléchargez les fichiers TTF puis activez-les.
 
@@ -92,8 +96,12 @@ Ensuite vous rechargez Zsh:
 exec zsh
 ```
 
-puis vous lançez la configuration de PowerLevel avec :
+puis maximisez la fenêtre de votre terminal et ensuite lançez la configuration de PowerLevel avec :
 
 ```bash
 p10k configure
 ```
+
+et vous confectionnez la ligne de commande comme il vous plaît.
+
+
