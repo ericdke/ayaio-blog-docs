@@ -110,6 +110,46 @@ puis maximisez la fenêtre de votre terminal et ensuite lançez la configuration
 p10k configure
 ```
 
-et vous confectionnez la ligne de commande comme il vous plaît.
+Toujours dans Xfce Terminal, dans Préférences, sélectionnez la police que vous venez d'installer.
+
+# Rofi
+
+C'est un lanceur modal qui permet, comme dans macOS, de faire apparaitre une fenetre flottante avec un champ de texte pour trouver rapidement une application à lancer ou un fichier à ouvrir, d'un simple rraccourci clavier tel que Meta-Espace.
+
+```bash
+sudo apt install rofi
+mkdir -p ~/.config/rofi
+rofi -dump-config > ~/.config/rofi/config.rasi
+```
+
+Allez dans le menu principal du bureau, ouvrez Paramètres > Clavier > Raccourcis d'applications, et ajoutez un raccourci de votre choix (Alt+Espace pour faire comme dans macOS) contenant cette ligne :
+
+```bash
+rofi -modi "run,drun,window" -show run
+```
+
+# Ruby
+
+Il est conseillé de ne pas utiliser les versions de Ruby packagées dans le système, comme sur macOS, et d'utiliser un gestionnaire de versions à la place. J'ai l'habitude d'utiser Rbenv.
+
+```bash
+git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+mkdir $HOME/.rbenv/plugins
+git clone https://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
+```
+
+Ouvrez `~/.zshrc` et ajoutez ces deux lignes :
+
+```bash
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
+```
+
+Relancez zsh si besoin. Ensuite vous pouvez installer un Ruby récent et le déclarer comme version globale par défaut :
+
+```bash
+rbenv install 3.1.0 --verbose
+rbenv global 3.1.0
+```
 
 
