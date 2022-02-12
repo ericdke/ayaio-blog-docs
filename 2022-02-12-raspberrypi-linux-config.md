@@ -70,7 +70,15 @@ Ces commandes vont installer Zsh puis Oh My Zsh. Suivez ensuite le tuto proposé
 
 ## PowerLevel10k
 
-Ensuite on ajoute PowerLevel10k qui permet de confectionner une superbe ligne de commande. Il faut d'abord [télécharger les fonts Meslo](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) qui sont idéales pour ça. Téléchargez les fichiers TTF puis activez-les.
+Ensuite on ajoute PowerLevel10k qui permet de confectionner une superbe ligne de commande. Il faut d'abord [télécharger les fonts Meslo](https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k) qui sont idéales pour ça. 
+
+Téléchargez les fichiers TTF, copiez les dans `.fonts` et activez-les :
+
+```bash
+mkdir ~/.fonts
+cp ~/Downloads/*.ttf ~/.fonts/
+fc-cache
+```
 
 Ensuite faites
 
