@@ -1,3 +1,5 @@
+<!-- pi400-pixandneofetch.png  -->
+
 Peut-on remplacer son Mac par un Raspberry Pi au quotidien ? Oui ! Enfin, non. Bon, ça dépend...
 
 Ca ne marchera pas pour le développement iOS pour des raisons évidentes, mais pour tout le reste, ça le fait carrément bien, à condition de ne pas avoir peur de mettre les mains dans le cambouis.
@@ -11,6 +13,8 @@ Je raconte comment j'ai installé puis configuré, aux petits oignons, une stati
 Il faut installer Raspberry Pi OS sur une carte dédiée. Je conseille 16Go minimum. 32 seront confortables, et 64 est idéal si vous comptez manipuler des gros fichiers, mais le plus important est que la carte soit rapide, classe 10 et bon fabriquant sont indispensables.
 
 Le plus simple pour l'install est d'utiliser l'app [Raspberry Imager](https://www.raspberrypi.com/software/), disponible sur toutes les plateformes. 
+
+![pi imager](images/pi400-piimager.png)
 
 Dans l'app, sélectionnez la version de votre choix de Raspberry OS (32 ou 64 bits) mais surtout faites bien attention à choisir **Raspberry OS** et non pas Ubuntu par exemple, qui est complètement buggée pour Pi.
 
@@ -58,6 +62,10 @@ Tout ce que l'on installe dans ce tuto est thémé avec Dracula, y compris Vim e
 
 Je trouve que l'environnement de travail que l'on va installer est sublimé par ce thème, qui unifie parfaitement bien tous les éléments de l'interface graphique.
 
+![fichiers et chromium](images/pi400-filesandchromium.png)
+
+![menus](images/pi400-menus.png)
+
 Si vous ne l'aimez pas, il vous faudra supprimer toutes les lignes de commande qui y font référence... ce qui serait dommage quand même ! Donnez-lui une chance, vous verrez c'est bien. :)
 
 Sinon dans le même genre il y a aussi [catppuccin](https://github.com/catppuccin/catppuccin) qui est très apprécié.
@@ -78,6 +86,8 @@ unzip Dracula.zip -d ~/.icons/dracula
 
 Allez ensuite dans Menu Principal > Gestionnaire de paramètres > Apparence, et choisissez "dracula" dans Style, et "Papirus-Dark" dans Icones.
 
+![dossier images](images/pi400-pictures.png)
+
 # Fenêtres
 
 C'est la grande mode des "tiling window managers" dans le monde Linux, et c'est vrai que c'est très attirant de pouvoir organiser ses fenêtres de manière géométrique sans qu'elles ne se marchent jamais dessus. Mais l'installation et la configuration de ces WM (type Xmonad) est incroyablement complexe, et je laisse ça pour un prochain dossier.
@@ -85,6 +95,8 @@ C'est la grande mode des "tiling window managers" dans le monde Linux, et c'est 
 A la place, ici, nous allons tout simplement créér un jeu de raccourcis clavier pour le gestionnaire de fenêtres, qui va nous permettre de caler les fenêtres sans avoir besoin de WM étranger.
 
 Allez dans Menu Principal > Gestionnaire de fenêtres > Clavier, puis assignez des combinaisons de touches pour les actions "Agencer la fenêtre en mosaïque ...". Par exemple je reprends les codes de Vim pour me souvenir facilement donc j'ai mis Maj+Ctrl+J pour demi écran en haut, Maj+Ctrl+K pour demi écran en bas, Maj+Ctrl+H pour demi écran à gauche, et Maj+Ctrl+L pour demi écran à droite.
+
+![windows shortcuts](images/pi400-windowprefs.png)
 
 Si comme mi vous enlevez les menus des fenêtres ainsi que leurs bordures (en tout cas pour le terminal Xfce), le tout en association avec Tmux, vous vous retrouverez avec un bureau super clean et bien calé, sans avoir besoin de rien ajouter.
 
@@ -173,6 +185,8 @@ cp ./files/.p10k.zsh ~/.p10k.zsh
 *Lors de mes tests il est arrivé que la config tmux enlève la config zsh ou inversement. Dans ce cas il suffit de refaire la manip une fois.*
 
 # Rofi
+
+![rofi](images/pi400-rofi.png)
 
 C'est un lanceur modal qui permet, comme dans macOS, de faire apparaitre une fenetre flottante avec un champ de texte pour trouver rapidement une application à lancer ou un fichier à ouvrir, d'un simple rraccourci clavier tel que Meta-Espace.
 
@@ -424,5 +438,13 @@ sudo apt install bpytop
 ```
 
 Une fois bpytop lancé, et passé le choc devant la geekerie de la chose, faites `M` pour ouvrir son menu, puis flèches droite/gauche pour naviguer dans les thèmes. Dracula et Nord sont ceux qui s'accordent le mieu avec notre bureau.
+
+![bpytop](images/crunchingpngs.png)
+
+# dotfiles
+
+Tous les fichiers de configuration qui ont servi à cette installation sont disponibles sur mon compte [GitHub](https://github.com/ericdke/dotfiles-pi4).
+
+Il y a même le fond d'écran tout joli.
 
 
