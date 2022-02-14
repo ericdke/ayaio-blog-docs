@@ -1,4 +1,4 @@
-[![intro](https://aya.io/blog/images/pi400-pixandneofetch.png)](https://aya.io/blog/images/pi400-pixandneofetch.png)
+[![intro](https://aya.io/blog/images/pi400-sweeticons.png)](https://aya.io/blog/images/pi400-sweeticons.png)
 
 Peut-on remplacer son Mac par un Raspberry Pi au quotidien ? Oui ! Enfin, non. Bon, ça dépend...
 
@@ -54,7 +54,7 @@ Ensuite un reboot et c'est ok.
 
 Au redémarrage, si Xfce vous propose un "panel" par défaut, dites oui pour faciliter la config, même si personnellement je l'ai enlevé tout de suite après. Je garde le panel du haut, qui fait "power bar", mais j'enlève le panel du bas qui fait "Dock".
 
-# Dracula
+# Dracula + Sweet + Candy
 
 [Dracula](https://draculatheme.com/) est un thème - palette de couleurs, décoration de fenêtres, etc - qui a la particularité d'être disponible pour plus de 200 applications, ce qui permet d'obtenir un résultat homogène pour tout l'environnement. Vous pouvez appliquer Dracula non seulement au bureau, fenêtres, icônes, menus, mais aussi à tout le système et à toutes les apps : terminal, navigateur, traitement de texte, etc.
 
@@ -66,27 +66,29 @@ Je trouve que l'environnement de travail que l'on va installer est sublimé par 
 
 [![menus](https://aya.io/blog/images/pi400-menus.png)](https://aya.io/blog/images/pi400-menus.png)
 
-Si vous ne l'aimez pas, il vous faudra supprimer toutes les lignes de commande qui y font référence... ce qui serait dommage quand même ! Donnez-lui une chance, vous verrez c'est bien. :)
+Et en rajoutant le thème Sweet et les icones Candy, on couvre tout le spectre de ce qui est thémable dans ce bureau et on se retrouve avec un ensemble super classe. J'adore le mélange Dracula et Sweet !
 
 Sinon dans le même genre il y a aussi [catppuccin](https://github.com/catppuccin/catppuccin) qui est très apprécié.
 
 ## Thème
 
-On commence par installer le thème Dracula pour le bureau.
+On commence par installer les thèmes et icones pour le bureau.
 
-```bash
-cd ~/Downloads
-curl https://github.com/dracula/gtk/archive/master.zip
-curl https://github.com/dracula/gtk/files/5214870/Dracula.zip
-mkdir ~/.themes
-unzip master.zip -d ~/.themes/dracula
-mkdir ~/.icons
-unzip Dracula.zip -d ~/.icons/dracula
-```
+Téléchargez :
 
-Allez ensuite dans Menu Principal > Gestionnaire de paramètres > Apparence, et choisissez "dracula" dans Style, et "Papirus-Dark" dans Icones.
+https://github.com/dracula/gtk/archive/master.zip 
+https://github.com/dracula/gtk/files/5214870/Dracula.zip
 
-[![dossier images](https://aya.io/blog/images/pi400-pictures.png)](https://aya.io/blog/images/pi400-pictures.png)
+puis
+
+https://github.com/EliverLara/Sweet/releases/download/v3.0/Sweet-Dark.zip 
+https://github.com/EliverLara/candy-icons/archive/refs/heads/master.zip 
+
+et dézippez les themes dans `~/.themes/` et les icones dans `~/.icons/` (renommez au besoin).
+
+Allez ensuite dans Menu Principal > Gestionnaire de paramètres > Apparence, et choisissez "dracula" ou "sweet" dans Style, et "candy" dans Icones.
+
+[![desktop settings](https://aya.io/blog/images/pi400-desktopsettings.png)](https://aya.io/blog/images/pi400-desktopsettings.png)
 
 ## Fenêtres
 
@@ -94,7 +96,7 @@ C'est la grande mode des "tiling window managers" dans le monde Linux, et c'est 
 
 A la place, ici, nous allons tout simplement créér un jeu de raccourcis clavier pour le gestionnaire de fenêtres, qui va nous permettre de caler les fenêtres sans avoir besoin de WM étranger.
 
-Allez dans Menu Principal > Gestionnaire de fenêtres > Clavier, puis assignez des combinaisons de touches pour les actions "Agencer la fenêtre en mosaïque ...". Par exemple je reprends les codes de Vim pour me souvenir facilement donc j'ai mis Maj+Ctrl+J pour demi écran en bas, Maj+Ctrl+K pour demi écran en haut, Maj+Ctrl+H pour demi écran à gauche, et Maj+Ctrl+L pour demi écran à droite.
+Allez dans Menu Principal > Gestionnaire de fenêtres > Clavier, puis assignez des combinaisons de touches pour les actions "Agencer la fenêtre en mosaïque ...". Par exemple je reprends les codes de Vim pour me souvenir facilement donc j'ai mis Maj+Ctrl+J pour demi écran en bas, Maj+Ctrl+K pour demi écran en haut, Maj+Ctrl+H pour demi écran à gauche, et Maj+Ctrl+L pour demi écran à droite.
 
 [![shortcuts](https://aya.io/blog/images/pi400-windowshortcuts.png)](https://aya.io/blog/images/pi400-windowshortcuts.png)
 
